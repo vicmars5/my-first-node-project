@@ -1,7 +1,8 @@
 {
-	"name":"working-with-express",
-	 "version":"0.0.1",
-	 "dependencies":{
-	 	"express":"4.8.6"
-	 }
+  "name": "working-with-express",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.8.7",
+    "swig": "^1.4.2"
+  }
 }

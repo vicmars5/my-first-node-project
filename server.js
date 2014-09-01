@@ -1,21 +1,15 @@
-var express=require('express');
+var express=require('express'),
+    swig=require('swig');
+
 var app=express();
-var port=3000;
 
-var parametros=[];
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname+'/views');
 
-app.get("/", function (req, res){
-	res.send("Ehhhh Puto!!");
+app.get('/', function(req, res){
+    res.render("index");
 });
-app.get("/prueba", function(req, res){
-    res.send("Estamos entrando en otra URL");
-});
-app.get("/mensaje/:valor", function (req,res){
-    parametros.push(req.params.valor);
-    res.send('Envia un mensaje');
-});
-app.get("/ver_mensaje/", function(req,res){
-    res.send('Recibiendo parametros: '+parametros+' <script>setTimeout(function(){window.location.reload()},5000)</script>');
-});
-app.listen(port);
-console.log("Estamos en el puerto 3000");
+
+app.listen(3000);
+console.log('Servidor corriendo en el puerto 3000');
